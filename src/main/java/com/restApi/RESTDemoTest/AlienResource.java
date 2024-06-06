@@ -3,6 +3,7 @@ package com.restApi.RESTDemoTest;
 import java.util.Arrays;
 import java.util.List;
 
+import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
@@ -36,6 +37,7 @@ public class AlienResource {
 	
 	@POST
 	@Path("alien")
+	@Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 	public Alien createAlien(Alien a1)
 	{
 		System.out.println(a1);
