@@ -6,6 +6,7 @@ import java.util.List;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
@@ -42,6 +43,16 @@ public class AlienResource {
 	{
 		System.out.println(a1);
 		repo.create(a1);
+		return a1;
+	}
+	
+	@PUT
+	@Path("alien")
+	@Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
+	public Alien updateAlien(Alien a1)
+	{
+		System.out.println(a1);
+		repo.update(a1);
 		return a1;
 	}
 }
