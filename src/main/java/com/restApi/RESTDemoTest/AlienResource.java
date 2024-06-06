@@ -16,7 +16,7 @@ public class AlienResource {
 	AlienRepository repo = new AlienRepository();
 	
 	@GET
-	@Produces(MediaType.APPLICATION_XML)
+	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 	public List<Alien> getAliens()
 	{
 		System.out.println("get aliens");
@@ -27,7 +27,7 @@ public class AlienResource {
 	
 	@GET
 	@Path("alien/{id}")
-	@Produces(MediaType.APPLICATION_XML)
+	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 	public Alien getAlien(@PathParam("id") int id)
 	{
 		return repo.getAlien(id);
