@@ -51,8 +51,14 @@ public class AlienResource {
 	@Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 	public Alien updateAlien(Alien a1)
 	{
-		System.out.println(a1);
-		repo.update(a1);
+		if(repo.getAlien(a1.getId()).getId()==0)
+		{
+			repo.create(a1);
+		}
+		else {
+			System.out.println(a1);
+			repo.update(a1);
+		}
 		return a1;
 	}
 }
