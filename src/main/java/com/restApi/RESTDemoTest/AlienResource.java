@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.PUT;
@@ -60,5 +61,17 @@ public class AlienResource {
 			repo.update(a1);
 		}
 		return a1;
+	}
+	
+	@DELETE
+	@Path("alien/{id}")
+	@Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
+	public Alien killAlien(@PathParam("id") int id)
+	{
+		if(repo.getAlien(id).getId()!=0)
+		{
+			repo.delete(id);
+		}
+		return repo.getAlien(id);
 	}
 }
